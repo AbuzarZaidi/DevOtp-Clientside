@@ -118,8 +118,13 @@ export const SignupButton = styled.button`
   max-width: 500px;
   border: 3px solid #000000;
   border-radius: 2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #454545;
+    width: 6.5rem;
+  }
   @media ${mobile} {
-    display:none;
+    // display:none;
    }
 
 `;
@@ -128,6 +133,10 @@ export const SignupText = styled.p`
   font-weight: 600;
   font-size: 1.1rem;
   padding: 0.7rem;
+  &:hover {
+ 
+    color:#ffffff;
+  }
   @media ${laptop} {
     font-size: 1rem;
   padding: 0.5rem;
@@ -148,6 +157,11 @@ export const LoginButton = styled.button`
   max-width: 500px;
   border: 3px solid #3333ad;
   border-radius: 2rem;
+  cursor: pointer;
+  &:hover {
+    width: 6.5rem;
+    background-color: lightblue;
+  }
   @media ${mobile} {
     display:none;
    }
@@ -157,6 +171,10 @@ export const LoginText = styled.p`
   font-weight: 600;
   font-size: 1.1rem;
   padding: 0.7rem;
+  &:hover {
+ 
+    color:#ffffff;
+  }
   @media ${laptop} {
     font-size: 1rem;
   padding: 0.5rem;

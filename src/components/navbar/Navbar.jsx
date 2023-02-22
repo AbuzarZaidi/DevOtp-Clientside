@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useDispatch } from "react-redux";
+import { setIsOpenHandler}from '../../store/modal' 
 import {
   NavbarSection,
   Section,
@@ -16,14 +18,20 @@ import {
   LoginText,
   Icon,
 } from "./NavbarStyle";
+import SignUp from "../SignUp/SignUp";
 import HeroSection from "../landingPage/herosection/HeroSection";
 const Navbar = () => {
+  const dispatch = useDispatch();
   const[showMenu,setShowMenu]=useState(false);
   const showMenuHandler=()=>{
     setShowMenu(!showMenu)
   }
+  const signupHandler=()=>{
+    dispatch(setIsOpenHandler());
+  }
   return (
     <>
+    <SignUp />
     {showMenu&&<h1>Hello world</h1>}
       <NavbarSection>
         <Section>
@@ -43,8 +51,9 @@ const Navbar = () => {
             <AuthButtons>
               <Icon>
                 <GiHamburgerMenu style={{ fontSize: "1rem" }} onClick={showMenuHandler} />
+               
               </Icon>
-              <SignupButton>
+              <SignupButton onClick={signupHandler}>
                 <SignupText>Sign Up</SignupText>
               </SignupButton>
               <LoginButton>
