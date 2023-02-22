@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal/Modal";
+import{LoginVal} from '../../store/constant'
 import {
   ModalContent,
   FormWrapper,
@@ -7,10 +8,10 @@ import {
   InnerSection,
   ContentCenter,
   Button,
-  LoginWord
+  Word
 } from "./SignUpStyle";
 import { useDispatch } from "react-redux";
-import { setIsOpenHandler } from "../../store/modal";
+import { setIsOpenHandler,setNameHandler } from "../../store/modal";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ const SignUp = () => {
   const closeModalHandler = () => {
     dispatch(setIsOpenHandler());
   };
-
+const ToggleHandler=()=>{
+  dispatch(setNameHandler(LoginVal))
+}
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -99,11 +102,11 @@ const SignUp = () => {
               
             </form>
             <ContentCenter>
-              <Button>Signup</Button>
+              <Button>Sign up</Button>
            
               </ContentCenter>
             <ContentCenter>
-            <InnerSection>Already have an account? <LoginWord>Log in</LoginWord></InnerSection>
+            <InnerSection>Already have an account? <Word onClick={ToggleHandler}>Log in</Word></InnerSection>
             </ContentCenter>
           </FormWrapper>
         </ModalContent>
