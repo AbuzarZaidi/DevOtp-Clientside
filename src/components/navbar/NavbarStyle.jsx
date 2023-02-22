@@ -160,7 +160,7 @@ export const LoginButton = styled.button`
   cursor: pointer;
   &:hover {
     width: 6.5rem;
-    background-color: lightblue;
+    background-color: #7a7ac9;
   }
   @media ${mobile} {
     display:none;
