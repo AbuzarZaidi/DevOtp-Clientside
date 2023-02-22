@@ -4,8 +4,10 @@ import {
   ModalContent,
   FormWrapper,
   Heading,
+  InnerSection,
   ContentCenter,
-  Button
+  Button,
+  LoginWord
 } from "./SignUpStyle";
 import { useDispatch } from "react-redux";
 import { setIsOpenHandler } from "../../store/modal";
@@ -96,8 +98,13 @@ const SignUp = () => {
               />
               
             </form>
-            <ContentCenter><Button>Signup</Button></ContentCenter>
-            
+            <ContentCenter>
+              <Button>Signup</Button>
+           
+              </ContentCenter>
+            <ContentCenter>
+            <InnerSection>Already have an account? <LoginWord>Log in</LoginWord></InnerSection>
+            </ContentCenter>
           </FormWrapper>
         </ModalContent>
       </Modal>

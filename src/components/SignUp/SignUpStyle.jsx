@@ -52,7 +52,7 @@ export const FormWrapper = styled.div`
     }
 
     input {
-      padding: 0.5rem 3rem 0.5rem 1rem;
+      padding: 0.7rem 3rem 0.7rem 1rem;
       // margin: 0 auto;
       width: 15rem;
       box-sizing: border-box;
@@ -73,7 +73,7 @@ export const FormWrapper = styled.div`
       }
 
       input {
-        padding: 0.25rem;
+        padding: 0.5rem;
       }
 
       button {
@@ -103,3 +103,11 @@ export const ContentCenter = styled.div`
   display: flex;
   justify-content: center;
 `;
+export const InnerSection=styled.div`
+margin-top:1rem;
+`
+export const LoginWord=styled.span`
+color: #3333ad;
+font-weight:700;
+cursor: pointer;
+`
