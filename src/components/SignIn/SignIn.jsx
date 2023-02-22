@@ -12,7 +12,7 @@ import {
     Button,
     Word
   } from "./SignInStyle";
-
+  const { signin } = require("../../functions/auth");
 const SignIn = () => {
     const dispatch = useDispatch();
 const [formData, setFormData] = useState({ email: "", password: "" });
@@ -28,9 +28,12 @@ const closeModalHandler = () => {
       [event.target.name]: event.target.value,
     });
   };
-  const handleSubmit = (event) => {
+  const handleSubmit =async (event) => {
     event.preventDefault();
-    console.log(formData); // or send data to server
+    console.log(formData)
+    const result = await signin({email:formData.email,password:formData.password});
+    console.log(result)
+   // or send data to server
   };
   return (
     <div>
@@ -70,7 +73,7 @@ const closeModalHandler = () => {
             
           </form>
           <ContentCenter>
-            <Button>Log in</Button>
+            <Button onClick={handleSubmit}>Log in</Button>
          
             </ContentCenter>
           <ContentCenter>

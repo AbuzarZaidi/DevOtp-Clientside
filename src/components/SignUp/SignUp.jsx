@@ -12,10 +12,10 @@ import {
 } from "./SignUpStyle";
 import { useDispatch } from "react-redux";
 import { setIsOpenHandler,setNameHandler } from "../../store/modal";
-
+const { signup } = require("../../functions/auth");
 const SignUp = () => {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({ name:"",phoneNo:"",email: "", password: "",confirmPassword:"" });
 
   const closeModalHandler = () => {
     dispatch(setIsOpenHandler());
@@ -30,9 +30,12 @@ const ToggleHandler=()=>{
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log(formData); // or send data to server
+    console.log(formData)
+    const result = await signup({name:formData.name,email:formData.email,password:formData.password,confirmPassword:formData.confirmPassword,phoneNo:formData.phoneNo});
+    console.log(result)
+    // or send data to server
   };
 
   return (
@@ -57,13 +60,13 @@ const ToggleHandler=()=>{
                 onChange={handleInputChange}
                 required
               />
-              <label htmlFor="name">Phone:</label>
+              <label htmlFor="phoneNo">Phone:</label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="phoneNo"
+                name="phoneNo"
                 placeholder="Phone No"
-                value={formData.name}
+                value={formData.phoneNo}
                 onChange={handleInputChange}
                 required
               />
@@ -88,13 +91,13 @@ const ToggleHandler=()=>{
                 minLength={8}
                 required
               />
-              <label htmlFor="password">Confirm Password:</label>
+              <label htmlFor="confirmPassword">Confirm Password:</label>
               <input
-                type="password"
-                id="password"
-                name="password"
+                type="confirmPassword"
+                id="confirmPassword"
+                name="confirmPassword"
                 placeholder="Confirm Password"
-                value={formData.password}
+                value={formData.confirmPassword}
                 onChange={handleInputChange}
                 minLength={8}
                 required
@@ -102,7 +105,7 @@ const ToggleHandler=()=>{
               
             </form>
             <ContentCenter>
-              <Button>Sign up</Button>
+              <Button onClick={handleSubmit}>Sign up</Button>
            
               </ContentCenter>
             <ContentCenter>
