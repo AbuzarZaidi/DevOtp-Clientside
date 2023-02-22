@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal/Modal";
+import * as yup from 'yup';
 import{LoginVal} from '../../store/constant'
 import {
   ModalContent,
@@ -8,7 +9,7 @@ import {
   InnerSection,
   ContentCenter,
   Button,
-  Word
+  Word,Error,ErrorDiv
 } from "./SignUpStyle";
 import { useDispatch } from "react-redux";
 import { setIsOpenHandler,setNameHandler } from "../../store/modal";
@@ -16,10 +17,25 @@ const { signup } = require("../../functions/auth");
 const SignUp = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({ name:"",phoneNo:"",email: "", password: "",confirmPassword:"" });
-
+  const [error,setError]=useState(false)
+  const [errorMessage,setErrorMessage]=useState("")
   const closeModalHandler = () => {
     dispatch(setIsOpenHandler());
   };
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    phoneNo: yup.string().required(),
+    email: yup.string().email().required(),
+    password: yup.string().min(6).required(),
+    confirmPassword: yup.string().min(6).required()
+});
+const closeError=()=>{
+  if(error){
+   setError(false);
+     setErrorMessage("");
+  }
+   
+ }
 const ToggleHandler=()=>{
   dispatch(setNameHandler(LoginVal))
 }
@@ -33,6 +49,12 @@ const ToggleHandler=()=>{
   const handleSubmit = async(event) => {
     event.preventDefault();
     console.log(formData)
+    try {
+      await schema.validate(formData);
+    } catch (error) {
+      setError(true);
+      setErrorMessage(error.message);
+    }
     const result = await signup({name:formData.name,email:formData.email,password:formData.password,confirmPassword:formData.confirmPassword,phoneNo:formData.phoneNo});
     console.log(result)
     // or send data to server
@@ -45,6 +67,10 @@ const ToggleHandler=()=>{
           <span className="close" onClick={closeModalHandler}>
             &times;
           </span>
+          <ContentCenter>
+          
+          {error &&<ErrorDiv> <Error>{errorMessage}</Error></ErrorDiv>}
+          </ContentCenter>
           <ContentCenter>
             <Heading>Sign up</Heading>
           </ContentCenter>
@@ -59,6 +85,7 @@ const ToggleHandler=()=>{
                 value={formData.name}
                 onChange={handleInputChange}
                 required
+                onClick={closeError}
               />
               <label htmlFor="phoneNo">Phone:</label>
               <input
@@ -69,6 +96,7 @@ const ToggleHandler=()=>{
                 value={formData.phoneNo}
                 onChange={handleInputChange}
                 required
+                onClick={closeError}
               />
               <label htmlFor="email">Email:</label>
               <input
@@ -79,6 +107,7 @@ const ToggleHandler=()=>{
                 value={formData.email}
                 onChange={handleInputChange}
                 required
+                onClick={closeError}
               />
               <label htmlFor="password">Password:</label>
               <input
@@ -90,10 +119,11 @@ const ToggleHandler=()=>{
                 onChange={handleInputChange}
                 minLength={8}
                 required
+                onClick={closeError}
               />
               <label htmlFor="confirmPassword">Confirm Password:</label>
               <input
-                type="confirmPassword"
+                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
                 placeholder="Confirm Password"
@@ -101,6 +131,7 @@ const ToggleHandler=()=>{
                 onChange={handleInputChange}
                 minLength={8}
                 required
+                onClick={closeError}
               />
               
             </form>

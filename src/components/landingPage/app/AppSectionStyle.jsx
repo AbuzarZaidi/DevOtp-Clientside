@@ -66,6 +66,7 @@ export const Image = styled.img`
 
 export const InstallButton = styled.button`
   width: 15rem;
+  cursor: pointer;
   max-width: 500px;
   background: radial-gradient(
     circle farthest-corner at 10% 20%,
@@ -80,4 +81,5 @@ export const InstallButtonText = styled.p`
   font-weight: 500;
   font-size: 1rem;
   padding: 0.7rem;
+  
 `;

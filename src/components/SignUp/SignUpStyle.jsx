@@ -111,3 +111,14 @@ color: #3333ad;
 font-weight:700;
 cursor: pointer;
 `
+export const Error = styled.div`
+  color:red;
+  font-size: 0.9rem;
+text-transform: capitalize;
+`;
+export const ErrorDiv = styled.div`
+background-color: #FFE0DF;
+padding:0.5rem;
+border-radius:1rem;
+
+`;

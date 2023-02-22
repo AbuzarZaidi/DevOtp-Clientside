@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
 import {SignUpVal ,LoginVal} from '../../store/constant'
 import { setIsOpenHandler}from '../../store/modal' 
+import { setLogoutHandler}from '../../store/auth' 
 import {
   NavbarSection,
   Section,
@@ -17,6 +18,8 @@ import {
   SignupText,
   LoginButton,
   LoginText,
+  LogoutButton,
+  LogoutText,
   Icon,
 } from "./NavbarStyle";
 import SignUp from "../SignUp/SignUp";
@@ -25,6 +28,7 @@ import HeroSection from "../landingPage/herosection/HeroSection";
 const Navbar = () => {
   const dispatch = useDispatch();
   const modalName=useSelector((state)=>state.modalData.name)
+  const isLogin=useSelector((state)=>state.authData.isLogin)
 
   const[showMenu,setShowMenu]=useState(false);
   const showMenuHandler=()=>{
@@ -35,6 +39,9 @@ const Navbar = () => {
   }
   const loginHandler=()=>{
     dispatch(setIsOpenHandler(LoginVal));
+  }
+  const logoutHandler=()=>{
+    dispatch(setLogoutHandler())
   }
   return (
     <>
@@ -61,12 +68,15 @@ const Navbar = () => {
                 <GiHamburgerMenu style={{ fontSize: "1rem" }} onClick={showMenuHandler} />
                
               </Icon>
-              <SignupButton onClick={signupHandler}>
+             {!isLogin&& <SignupButton onClick={signupHandler}>
                 <SignupText>Sign Up</SignupText>
-              </SignupButton>
-              <LoginButton onClick={loginHandler}>
+              </SignupButton>}
+              {!isLogin&&<LoginButton onClick={loginHandler}>
                 <LoginText>Login</LoginText>
-              </LoginButton>
+              </LoginButton>}
+              {isLogin&&<LogoutButton onClick={logoutHandler}>
+                <LogoutText>Log out</LogoutText>
+              </LogoutButton>}
             </AuthButtons>
           </NavbarMenu>
         </Section>

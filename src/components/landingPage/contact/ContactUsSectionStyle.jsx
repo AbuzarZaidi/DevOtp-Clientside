@@ -48,6 +48,7 @@ export const SubmitButtonText = styled.p`
   font-weight: 500;
   font-size: 1rem;
   padding: 0.7rem;
+  cursor: pointer;
 `;
 
 export const Heading2 = styled.h4`
@@ -169,4 +170,15 @@ export const MessageField = styled.textarea`
   @media ${mediaQueries.xxs} {
     width: 10rem;
   }
+`;
+export const Error = styled.div`
+  color:red;
+  font-size: 1rem;
+text-transform: capitalize;
+`;
+export const ErrorDiv = styled.div`
+background-color: #FFE0DF;
+padding:0.5rem 5rem;
+border-radius:1rem;
+
 `;

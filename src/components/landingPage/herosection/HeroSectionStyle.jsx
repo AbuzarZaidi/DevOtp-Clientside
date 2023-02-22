@@ -93,6 +93,7 @@ color:#3333AD;
 `;
 export const ReadMoreButton = styled.button`
   width: 8rem;
+  cursor: pointer;
   margin-top:2rem;
   max-width: 500px;
   background: radial-gradient( circle farthest-corner at 10% 20%, rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );

@@ -184,6 +184,40 @@ export const LoginText = styled.p`
     padding: 0.3rem;
    }
 `;
+export const LogoutButton = styled.button`
+  background: none;
+  // margin-top: 2.5rem;
+  width: 6rem;
+  max-width: 500px;
+  border: 3px solid  #ff3333;
+  border-radius: 2rem;
+  cursor: pointer;
+  &:hover {
+    width: 6.5rem;
+    background-color:  #ff3333;
+  }
+  @media ${mobile} {
+    // display:none;
+   }
+`;
+export const LogoutText = styled.p`
+  color:  #ff3333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.7rem;
+  &:hover {
+ 
+    color:#ffffff;
+  }
+  @media ${laptop} {
+    font-size: 1rem;
+  padding: 0.5rem;
+   }
+   @media ${minilaptop} {
+    font-size: .9rem;
+    padding: 0.3rem;
+   }
+`;
 export const Icon=styled.div`
 display:none;
 @media ${mobile} {
