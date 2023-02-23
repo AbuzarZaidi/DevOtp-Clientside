@@ -1,4 +1,12 @@
 import styled from "styled-components";
+const mediaQueries = {
+  mobile: `(max-width: 868px)`,
+  laptop: `(max-width: 1500px)`,
+  minilaptop: `(max-width: 1200px)`,
+  tablet: `(max-width: 935px)`,
+  xs: `(max-width: 450px)`,
+  xxs: `(max-width: 350px)`,
+};
 export const P1PackageDiv = styled.div`
   background: radial-gradient(
     circle farthest-corner at 10% 20%,
@@ -15,6 +23,14 @@ export const P1PackageDiv = styled.div`
 
   &:hover {
     transform: scale(1.05); /* grow the component on hover */
+  }
+  @media ${mediaQueries.minilaptop} {
+    width: 18rem;
+  
+  }
+  @media ${mediaQueries.tablet} {
+    width: 16rem;
+  
   }
 `;
 export const P1Center = styled.div`
@@ -68,6 +84,10 @@ export const P1ChoosePlanButton = styled.button`
   background: #ffffff;
   border: none;
   border-radius: 2rem;
+  @media ${mediaQueries.tablet} {
+    width: 11rem;
+  
+  }
 `;
 export const P1ChoosePlanButtonText = styled.p`
   color: radial-gradient(
@@ -93,6 +113,14 @@ export const P2PackageDiv = styled.div`
 
   &:hover {
     transform: scale(1.05); /* grow the component on hover */
+  }
+  @media ${mediaQueries.minilaptop} {
+    width: 18rem;
+  
+  }
+  @media ${mediaQueries.tablet} {
+    width: 16rem;
+  
   }
 `;
 export const P2Center = styled.div`
@@ -154,6 +182,10 @@ export const P2ChoosePlanButton = styled.button`
   );
   border: none;
   border-radius: 2rem;
+  @media ${mediaQueries.tablet} {
+    width: 11rem;
+  
+  }
 `;
 export const P2ChoosePlanButtonText = styled.p`
   color: #ffffff;

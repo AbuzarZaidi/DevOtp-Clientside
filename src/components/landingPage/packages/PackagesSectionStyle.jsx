@@ -24,3 +24,12 @@ export const Heading = styled.h2`
   text-align: center;
   color: #3333ad;
 `;
+export const Center=styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+@media ${mediaQueries.mobile} {
+  flex-direction:column;
+
+}
+`
