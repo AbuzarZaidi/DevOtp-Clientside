@@ -21,7 +21,9 @@ import {
 const { Createquery } = require("../../../functions/contact");
 const ContactUsSection = () => {
   const [error,setError]=useState(false)
+  const [success,setSuccess]=useState(false)
 const [errorMessage,setErrorMessage]=useState("")
+const [successMessage,setSuccessMessage]=useState("")
 const schema = yup.object().shape({
   name: yup.string().required(),
   phoneNo: yup.string().required(),
@@ -37,7 +39,7 @@ const schema = yup.object().shape({
   };
   const handleSubmit =async (event) => {
     event.preventDefault();
-    console.log(formData)
+ 
     try {
       await schema.validate(formData);
     } catch (error) {
@@ -45,7 +47,24 @@ const schema = yup.object().shape({
       setErrorMessage(error.message);
     }
     const result = await Createquery(formData);
-    console.log(result)
+    console.log(result.message)
+    if(result.data){
+      setSuccess(true);
+        setSuccessMessage(result.message)
+        setTimeout(() => {
+          setSuccess(false);
+        }, 5000);
+      
+    }else{
+      setError(true);
+      if(Array.isArray(result.message)){
+  
+        setSuccessMessage(result.message[0])
+      }else{
+        setErrorMessage(result.message);
+      }
+      
+    }
    
   };
   const closeError=()=>{
@@ -59,6 +78,9 @@ const schema = yup.object().shape({
     <Section>
       <Heading>Contact</Heading>
       {error &&<ErrorDiv> <Error>{errorMessage}</Error></ErrorDiv>}
+      {success &&<div style={{backgroundColor:"green",borderRadius:"1rem",padding:"0.5rem 5rem"}}> <p style={{color:"#ffffff",fontSize: "1rem",textTransform:"capitalize"}}>{successMessage}</p></div>}
+      
+     
       <InnerSection>
         <FieldDiv1 >
           <Heading2>Name</Heading2>

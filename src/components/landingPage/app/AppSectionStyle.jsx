@@ -75,6 +75,11 @@ export const InstallButton = styled.button`
   );
   border: none;
   border-radius: 2rem;
+  transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+  &:hover {
+    transform: scale(1.05); /* grow the component on hover */
+  }
 `;
 export const InstallButtonText = styled.p`
   color: #ffffff;

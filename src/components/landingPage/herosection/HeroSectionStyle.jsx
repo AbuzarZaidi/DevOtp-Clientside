@@ -99,6 +99,11 @@ export const ReadMoreButton = styled.button`
   background: radial-gradient( circle farthest-corner at 10% 20%, rgba(171,102,255,1) 0%, rgba(116,182,247,1) 90% );
   border:none;
   border-radius:2rem;
+  transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+  &:hover {
+    transform: scale(1.05); /* grow the component on hover */
+  }
 `;
 export const ReadMoreButtonText = styled.p`
  color:#ffffff;

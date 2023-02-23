@@ -57,7 +57,12 @@ const ToggleHandler=()=>{
     }
     const result = await signup({name:formData.name,email:formData.email,password:formData.password,confirmPassword:formData.confirmPassword,phoneNo:formData.phoneNo});
     console.log(result)
-    // or send data to server
+    if(result.data){
+      dispatch(setNameHandler(LoginVal))
+    }else{
+      setError(true);
+      setErrorMessage(result.message);
+    }
   };
 
   return (

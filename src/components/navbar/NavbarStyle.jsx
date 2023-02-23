@@ -121,7 +121,11 @@ export const SignupButton = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #454545;
-    width: 6.5rem;
+    transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+    &:hover {
+      transform: scale(1.05); /* grow the component on hover */
+    }
   }
   @media ${mobile} {
     // display:none;
@@ -159,7 +163,11 @@ export const LoginButton = styled.button`
   border-radius: 2rem;
   cursor: pointer;
   &:hover {
-    width: 6.5rem;
+    transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+    &:hover {
+      transform: scale(1.05); /* grow the component on hover */
+    }
     background-color: #7a7ac9;
   }
   @media ${mobile} {
@@ -193,8 +201,13 @@ export const LogoutButton = styled.button`
   border-radius: 2rem;
   cursor: pointer;
   &:hover {
-    width: 6.5rem;
+    
     background-color:  #ff3333;
+    transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+    &:hover {
+      transform: scale(1.05); /* grow the component on hover */
+    }
   }
   @media ${mobile} {
     // display:none;

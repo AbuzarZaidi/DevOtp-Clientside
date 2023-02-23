@@ -28,7 +28,7 @@ export const Section = styled.section`
 `;
 export const ImageContainer = styled.div`
 margin-top:2rem;
-
+margin-left:2rem;
   display: flex;
   justify-content: center;
   align-items: center;

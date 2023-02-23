@@ -28,6 +28,11 @@ export const Heading = styled.h2`
 export const SubmitButton = styled.button`
   margin-top: 2.5rem;
   width: 15rem;
+  transition: transform 0.2s ease-in-out; /* add a transition effect */
+
+  &:hover {
+    transform: scale(1.05); /* grow the component on hover */
+  }
   background: radial-gradient(
     circle farthest-corner at 10% 20%,
     rgba(171, 102, 255, 1) 0%,
