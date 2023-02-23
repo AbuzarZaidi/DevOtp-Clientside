@@ -128,7 +128,7 @@ export const SignupButton = styled.button`
     }
   }
   @media ${mobile} {
-    // display:none;
+    display:none;
    }
 
 `;
@@ -171,7 +171,7 @@ export const LoginButton = styled.button`
     background-color: #7a7ac9;
   }
   @media ${mobile} {
-    // display:none;
+    display:none;
    }
 `;
 export const LoginText = styled.p`

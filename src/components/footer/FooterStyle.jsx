@@ -8,6 +8,7 @@ const mediaQueries = {
   xs: `(max-width: 450px)`,
   xxs: `(max-width: 350px)`,
 };
+
 export const FooterSection = styled.footer`
 background: #fff7e0;
  background-image: radial-gradient(at 80.1% 83.3%, #ffe0fb 0px, transparent 50%),radial-gradient(at 74.1% 34.7%, #d7f7fa 0px, transparent 50%),radial-gradient(at 27.7% 87.0%, #eedbff 0px, transparent 50%);
@@ -15,28 +16,15 @@ padding-bottom:2rem;
  weight:100%;
  margin-top:5rem;
 `;
-export const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  width: 100%; /* set the section width to 100% of the parent element */
-  max-width: 100rem; /* set a maximum width for the section to limit its size */
-  margin: 0 auto; /* center the section horizontally using auto margin */
-  @media ${mediaQueries.tablet} {
-    width: 90%;
-  }
-`;
+
 export const ImageContainer = styled.div`
 margin-top:2rem;
-margin-left:2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   text-align:center;
 `;
-
 export const Image = styled.img`
-  width: 100%;
+  // width: 100%;
   max-width: 500px;
 `;
 export const Heading = styled.h2`
@@ -53,6 +41,9 @@ export const Heading2 = styled.h4`
   margin-top: 2.5rem;
   width: 100%; /* set the heading width to 100% of the parent element */
   max-width: 45rem;  /* set a maximum width for the heading to limit its size */
+  @media ${mediaQueries.mobile} {
+    text-align: center;
+  }
 `;
 
 export const Detail1 = styled.p`
@@ -62,6 +53,9 @@ export const Detail1 = styled.p`
   margin-top: 1.5rem;
   width: 100%; /* set the heading width to 100% of the parent element */
   max-width: 15rem;  /* set a maximum width for the heading to limit its size */
+  @media ${mediaQueries.mobile} {
+    text-align: center;
+  }
 `;
 export const Detail2 = styled.p`
   font-size: .8rem;
@@ -74,11 +68,19 @@ export const Detail2 = styled.p`
 export const DetailSections=styled.div`
 display:flex;
 justify-content:space-around;
-@media ${mediaQueries.tablet} {
+margin:auto;
+@media ${mediaQueries.mobile} {
   flex-direction:column;
-  margin-left:1rem;
+  // margin-left:1rem;
+  align-items:center;
 }
 `
 export const DetailSection=styled.div`
 
+`
+export const DetailSection2=styled.div`
+margin-top:7rem;
+@media ${mediaQueries.mobile} {
+  margin-top:0;
+}
 `
