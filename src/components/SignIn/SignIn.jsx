@@ -6,12 +6,14 @@ import{SignUpVal} from '../../store/constant'
 import { setIsOpenHandler,setNameHandler } from "../../store/modal";
 import { setLoginHandler } from "../../store/auth";
 import {
-    ModalContent,
-    FormWrapper,
+  InputContentCenter,
     Heading,
     InnerSection,
     ContentCenter,
     Button,
+    ContentCenter1,
+    Label,
+    Input,
     Word,Error,ErrorDiv
   } from "./SignInStyle";
   const { signin } = require("../../functions/auth");
@@ -69,60 +71,56 @@ const closeModalHandler = () => {
    // or send data to server
   };
   return (
-    <div>
-    <Modal>
-      <ModalContent>
-        
-        <span className="close" onClick={closeModalHandler}>
-          &times;
-        </span>
+    <>
+     <Modal>
         <ContentCenter>
-          
-        {error &&<ErrorDiv> <Error>{errorMessage}</Error></ErrorDiv>}
+          {error && (
+            <ErrorDiv>
+              {" "}
+              <Error>{errorMessage}</Error>
+            </ErrorDiv>
+          )}
         </ContentCenter>
         <ContentCenter>
           <Heading>Log in</Heading>
         </ContentCenter>
-        <FormWrapper>
-          <form onSubmit={handleSubmit}>
-         
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-              onClick={closeError}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleInputChange}
-              minLength={8}
-              required
-              onClick={closeError}
-            />
-      
-      
-          </form>
-          <ContentCenter>
-            <Button onClick={handleSubmit}>Log in</Button>
-         
-            </ContentCenter>
-          <ContentCenter>
-          <InnerSection>Don't have an account yet? <Word onClick={ToggleHandler}>Sign up</Word></InnerSection>
-          </ContentCenter>
-        </FormWrapper>
-      </ModalContent>
-    </Modal>
-  </div>
+
+       
+        
+        <InputContentCenter>
+          <Label htmlFor="email">Email</Label>
+          <Input type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                onClick={closeError} />
+        </InputContentCenter>
+        <InputContentCenter>
+          <Label htmlFor="password">Password</Label>
+          <Input  type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleInputChange}
+                minLength={8}
+                required
+                onClick={closeError} />
+        </InputContentCenter>
+       
+        <ContentCenter>
+          <Button onClick={handleSubmit}>Log in</Button>
+        </ContentCenter>
+        <ContentCenter1>
+          <InnerSection>
+           Don't have any account yet? <Word onClick={ToggleHandler}>Sign up</Word>
+          </InnerSection>
+        </ContentCenter1>
+      </Modal>
+  </>
   )
 }
 
