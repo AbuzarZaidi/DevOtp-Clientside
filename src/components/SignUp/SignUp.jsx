@@ -29,9 +29,7 @@ const SignUp = () => {
   });
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const closeModalHandler = () => {
-    dispatch(setIsOpenHandler());
-  };
+
   const schema = yup.object().shape({
     name: yup.string().required(),
     phoneNo: yup.string().required(),
@@ -97,27 +95,64 @@ const SignUp = () => {
         </ContentCenter>
 
         <InputContentCenter>
-          <Label htmlFor="name">Name</Label>
-          <Input type="text" />
+          <Label htmlFor="name">Name:</Label>
+          <Input type="text"
+                id="name"
+                name="name"
+                placeholder="Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                onClick={closeError} />
         </InputContentCenter>
         <InputContentCenter>
-          <Label htmlFor="name">Email</Label>
-          <Input type="text" />
+          <Label htmlFor="phoneNo">Phone:</Label>
+          <Input type="text"
+                id="phoneNo"
+                name="phoneNo"
+                placeholder="Phone No"
+                value={formData.phoneNo}
+                onChange={handleInputChange}
+                required
+                onClick={closeError} />
         </InputContentCenter>
         <InputContentCenter>
-          <Label htmlFor="name">Phone No</Label>
-          <Input type="text" />
+          <Label htmlFor="email">Email</Label>
+          <Input type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                onClick={closeError} />
         </InputContentCenter>
         <InputContentCenter>
-          <Label htmlFor="name">Password</Label>
-          <Input type="text" />
+          <Label htmlFor="password">Password</Label>
+          <Input  type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleInputChange}
+                minLength={8}
+                required
+                onClick={closeError} />
         </InputContentCenter>
         <InputContentCenter>
-          <Label htmlFor="name">Confirm Password</Label>
-          <Input type="text" />
+          <Label htmlFor="confirmPassword">Confirm Password</Label>
+          <Input   type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                minLength={8}
+                required
+                onClick={closeError}/>
         </InputContentCenter>
         <ContentCenter>
-          <Button>Sign up</Button>
+          <Button onClick={handleSubmit}>Sign up</Button>
         </ContentCenter>
         <ContentCenter1>
           <InnerSection>
