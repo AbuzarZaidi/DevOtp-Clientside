@@ -79,7 +79,7 @@ const ToggleHandler=()=>{
           <ContentCenter>
             <Heading>Sign up</Heading>
           </ContentCenter>
-          <FormWrapper>
+           <FormWrapper>
             <form onSubmit={handleSubmit}>
               <label htmlFor="name">Name:</label>
               <input
@@ -138,17 +138,20 @@ const ToggleHandler=()=>{
                 required
                 onClick={closeError}
               />
-              
+               
+       
             </form>
-            <ContentCenter>
-              <Button onClick={handleSubmit}>Sign up</Button>
-           
-              </ContentCenter>
-            <ContentCenter>
-            <InnerSection>Already have an account? <Word onClick={ToggleHandler}>Log in</Word></InnerSection>
-            </ContentCenter>
-          </FormWrapper>
+            
+          </FormWrapper> 
+          <ContentCenter>
+          <Button onClick={handleSubmit}>Sign up</Button>
+          </ContentCenter>
+          <ContentCenter>
+    
+          <InnerSection>Already have an account? <Word onClick={ToggleHandler}>Log in</Word></InnerSection>
+          </ContentCenter>
         </ModalContent>
+        
       </Modal>
     </div>
   );

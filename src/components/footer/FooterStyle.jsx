@@ -64,6 +64,9 @@ export const Detail2 = styled.p`
   margin-top: .5rem;
   width: 100%; /* set the heading width to 100% of the parent element */
   max-width: 15rem;  /* set a maximum width for the heading to limit its size */
+  @media ${mediaQueries.mobile} {
+    text-align: center;
+  }
 `;
 export const DetailSections=styled.div`
 display:flex;

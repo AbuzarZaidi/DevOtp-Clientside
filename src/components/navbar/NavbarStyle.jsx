@@ -12,11 +12,11 @@ export const NavbarSection = styled.footer`
     ),
     radial-gradient(at 74.1% 34.7%, #d7f7fa 0px, transparent 50%),
     radial-gradient(at 27.7% 87%, #eedbff 0px, transparent 50%);
-  height: 85vh;
+  height: 100vh;
   weight: 100%;
   @media ${mobile} {
-    height:70vh;
-    
+    height:auto;
+    padding-bottom:5rem;
    }
 `;
 export const Section = styled.section`
@@ -128,7 +128,7 @@ export const SignupButton = styled.button`
     }
   }
   @media ${mobile} {
-    display:none;
+    // display:none;
    }
 
 `;

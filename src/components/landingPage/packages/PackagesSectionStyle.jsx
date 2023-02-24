@@ -20,9 +20,12 @@ export const Section = styled.section`
 
 export const Heading = styled.h2`
   margin-top: 5rem;
-  font-size: 2rem;
+  font-size: 3.2rem;
   text-align: center;
   color: #3333ad;
+  @media ${mediaQueries.mobile} {
+    font-size: 2rem;
+  }
 `;
 export const Center=styled.div`
 display:flex;
